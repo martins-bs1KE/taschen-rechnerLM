@@ -397,13 +397,25 @@
     </Component>
     <Component class="javax.swing.JTextField" name="calculationText">
       <Properties>
+<<<<<<< HEAD
+=======
+        <Property name="editable" type="boolean" value="false"/>
+>>>>>>> 5296fac12cd4e000de63dc2bc3bb2cf021c5a587
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cValue">
       <Properties>
+<<<<<<< HEAD
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
+=======
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cValueActionPerformed"/>
+      </Events>
+>>>>>>> 5296fac12cd4e000de63dc2bc3bb2cf021c5a587
     </Component>
     <Component class="javax.swing.JButton" name="jButton18">
       <Properties>
@@ -416,13 +428,26 @@
     </Component>
     <Component class="javax.swing.JTextField" name="memText">
       <Properties>
+<<<<<<< HEAD
+=======
+        <Property name="editable" type="boolean" value="false"/>
+>>>>>>> 5296fac12cd4e000de63dc2bc3bb2cf021c5a587
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="resultText">
       <Properties>
+<<<<<<< HEAD
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
+=======
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="focusable" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resultTextActionPerformed"/>
+      </Events>
+>>>>>>> 5296fac12cd4e000de63dc2bc3bb2cf021c5a587
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
