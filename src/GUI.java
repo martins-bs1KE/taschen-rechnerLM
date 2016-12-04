@@ -424,7 +424,14 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
+    private boolean lastChar(String value, String compare) { // Check for last Character in a String
+        String character = value.substring(value.length()-1);
+        if(character.equals(compare)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     private void number(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number
         String currentValue = cValue.getText(); 
@@ -436,7 +443,14 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
     private void insertSign(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertSign
         String calcValue = calculationText.getText();
         String value = cValue.getText();
-        
+        if(!"".equals(value) && !lastChar(value, ".")) {
+          String toCalc = value +" "+ evt.getActionCommand();
+          calcValue = calcValue + toCalc + " ";
+          calculationText.setText(calcValue);
+          cValue.setText("");
+        } else {
+           value = "";
+        }
         
     }//GEN-LAST:event_insertSign
 
@@ -463,7 +477,7 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
 
     private void memoryAdd(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memoryAdd
         double mem;
-        if("".equals(memText.getText()) || "0".equals(memText.getText())) { 
+        if("".equals(memText.getText()) || "0".equals(memText.getText()) || "0.0".equals(memText.getText())) { 
             mem = Double.parseDouble(cValue.getText());
         } else if("".equals(cValue.getText())) {
             mem = 0;
@@ -491,7 +505,7 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
     }//GEN-LAST:event_memoryClear
 
     private void addNegativeSign(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNegativeSign
-        // TODO add your handling code here:
+
         double value = Double.parseDouble(cValue.getText());
         if(!"".equals(value) || value != 0) {
             value = value * (-1);
@@ -532,15 +546,6 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
        
     }
     
-    
-    private boolean lastChar(String value, String compare) {
-        String character = value.substring(value.length()-1);
-        if(character == compare) {
-            return true;
-        } else {
-            return false;
-        }
-    }
     /**
      * @param args the command line arguments
      */
