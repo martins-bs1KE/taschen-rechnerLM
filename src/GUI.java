@@ -66,6 +66,9 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
         jButton23 = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
+        jButton27 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,6 +214,11 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
         });
 
         jButton13.setText("=");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runCalculation(evt);
+            }
+        });
 
         jButton14.setText("+");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -241,6 +249,11 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
             }
         });
 
+<<<<<<< HEAD
+        calculationText.setFocusable(false);
+
+        cValue.setFocusable(false);
+=======
         calculationText.setEditable(false);
         calculationText.setFocusable(false);
 
@@ -250,6 +263,7 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
                 cValueActionPerformed(evt);
             }
         });
+>>>>>>> 5296fac12cd4e000de63dc2bc3bb2cf021c5a587
 
         jButton18.setText("<--");
         jButton18.setToolTipText("");
@@ -259,6 +273,11 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
             }
         });
 
+<<<<<<< HEAD
+        memText.setFocusable(false);
+
+        resultText.setFocusable(false);
+=======
         memText.setEditable(false);
         memText.setFocusable(false);
 
@@ -269,6 +288,7 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
                 resultTextActionPerformed(evt);
             }
         });
+>>>>>>> 5296fac12cd4e000de63dc2bc3bb2cf021c5a587
 
         jLabel1.setText("current Value");
 
@@ -277,8 +297,18 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
         jLabel3.setText("result");
 
         jButton19.setText("X²");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setSquare(evt);
+            }
+        });
 
         jButton21.setText("X³");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setCube(evt);
+            }
+        });
 
         jButton20.setText("CE");
         jButton20.setToolTipText("");
@@ -317,6 +347,31 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
             }
         });
 
+        jButton26.setText("%");
+        jButton26.setToolTipText("");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setPercent(evt);
+            }
+        });
+
+        jButton27.setText("√");
+        jButton27.setToolTipText("");
+        jButton27.setActionCommand("√");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setRoot(evt);
+            }
+        });
+
+        jButton28.setText("M In");
+        jButton28.setToolTipText("");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memoryInsert(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -328,13 +383,6 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                                    .addComponent(jButton21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                                    .addComponent(jButton23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
@@ -343,11 +391,30 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(resultText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jButton26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(3, 3, 3))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jButton27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jButton28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jButton19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                                            .addComponent(jButton21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                                            .addComponent(jButton23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jButton18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
@@ -365,11 +432,12 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
                                                 .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addComponent(cValue, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cValue, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
@@ -400,18 +468,21 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
                             .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jButton28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(jButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -439,19 +510,37 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
         cValue.setText(currentValue);
     }//GEN-LAST:event_number
 
-    
+
     private void insertSign(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertSign
+
         String calcValue = calculationText.getText();
         String value = cValue.getText();
         if(!"".equals(value) && !lastChar(value, ".")) {
+            if (isNegative(value)) {
+                value = "(" + value + ")";
+            }
+             // calculation string is not empty
+            if(calculationText.getText().length() >= 1) {
+                calculationText.setText(calcValue + " " +value + " " + evt.getActionCommand() + " ");
+                cValue.setText("");
+            // first insert of a value of the current calculation
+            } else {
+                calculationText.setText(value + " " + evt.getActionCommand());
+                cValue.setText("");
+            }
           String toCalc = value +" "+ evt.getActionCommand();
           calcValue = calcValue + toCalc + " ";
           calculationText.setText(calcValue);
           cValue.setText("");
         } else {
-           value = "";
+            if(calculationText.getText().length() >= 1) {
+                calcValue = calcValue.substring(0, calcValue.length()-2);
+                calculationText.setText(calcValue + evt.getActionCommand() + " ");
+            // if everything is empty
+            } else {
+              // void  
+            }
         }
-        
     }//GEN-LAST:event_insertSign
 
     private void insertPoint(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertPoint
@@ -515,6 +604,52 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
         }
     }//GEN-LAST:event_addNegativeSign
 
+    private void runCalculation(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runCalculation
+        String calcString   = calculationText.getText();
+        calcString          = calcString + cValue.getText();
+        calcString          = clearSpace(calcString);
+        calcString          = clearLastSign(calcString);
+        System.out.println(calcString);
+    }//GEN-LAST:event_runCalculation
+
+    private void setPercent(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setPercent
+        String value    = cValue.getText();
+        value           =  "%[" + value + "]";
+        cValue.setText(value);
+    }//GEN-LAST:event_setPercent
+
+    private void setSquare(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setSquare
+        String value    = cValue.getText();
+        value           =  "square[" + value + "]";
+        cValue.setText(value);
+    }//GEN-LAST:event_setSquare
+
+    private void setCube(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setCube
+        String value    = cValue.getText();
+        value           =  "cube[" + value + "]"; 
+        cValue.setText(value);
+    }//GEN-LAST:event_setCube
+
+    private void setRoot(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setRoot
+        String value    = cValue.getText();
+        value           =  "root[" + value + "]";
+        cValue.setText(value);        
+    }//GEN-LAST:event_setRoot
+
+    private void memoryInsert(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memoryInsert
+        cValue.setText(memText.getText());
+    }//GEN-LAST:event_memoryInsert
+    
+    private boolean isNegative(String string) {
+        String sign = string.substring(0, 1);
+        if("-".equals(sign)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    
     private void cValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cValueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cValueActionPerformed
@@ -522,7 +657,7 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
     private void resultTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resultTextActionPerformed
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
         List posKey = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "*", "/", "+", "-", ".", ",");
@@ -538,12 +673,25 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        
+
     }
 
     @Override
     public void keyReleased(KeyEvent ke) {
-       
+
+    }
+    
+    private String clearLastSign(String string) {
+        String lastChar = string.substring(string.length()-1, string.length());
+        if("/".equals(lastChar)|| "+".equals(lastChar) || "-".equals(lastChar) || "x".equals(lastChar)) {
+            string = string.substring(0, string.length()-1);
+        }
+        return string;
+    }
+    
+    private String clearSpace(String string) {
+        string = string.replace(" ", "");
+        return string;
     }
     
     /**
@@ -602,6 +750,9 @@ public class GUI extends javax.swing.JFrame implements KeyListener{
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
