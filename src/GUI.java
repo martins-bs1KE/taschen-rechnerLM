@@ -1,3 +1,9 @@
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Arrays;
+import java.util.List;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,13 +14,14 @@
  *
  * @author lkaemmerer
  */
-public class GUI extends javax.swing.JFrame {
+public class GUI extends javax.swing.JFrame implements KeyListener{
 
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        cValue.addKeyListener(this);
     }
 
     /**
@@ -234,11 +241,32 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        calculationText.setEditable(false);
+        calculationText.setFocusable(false);
+
+        cValue.setEditable(false);
+        cValue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cValueActionPerformed(evt);
+            }
+        });
+
         jButton18.setText("<--");
         jButton18.setToolTipText("");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delLast(evt);
+            }
+        });
+
+        memText.setEditable(false);
+        memText.setFocusable(false);
+
+        resultText.setEditable(false);
+        resultText.setFocusable(false);
+        resultText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultTextActionPerformed(evt);
             }
         });
 
@@ -404,6 +432,7 @@ public class GUI extends javax.swing.JFrame {
         cValue.setText(currentValue);
     }//GEN-LAST:event_number
 
+    
     private void insertSign(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertSign
         String calcValue = calculationText.getText();
         String value = cValue.getText();
@@ -433,11 +462,25 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_delLast
 
     private void memoryAdd(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memoryAdd
-        // TODO add your handling code here:
+        double mem;
+        if("".equals(memText.getText()) || "0".equals(memText.getText())) { 
+            mem = Double.parseDouble(cValue.getText());
+        } else if("".equals(cValue.getText())) {
+            mem = 0;
+        } else {
+            mem = Double.parseDouble(cValue.getText()) + Double.parseDouble(memText.getText());
+        }
+        memText.setText(Double.toString(mem));
     }//GEN-LAST:event_memoryAdd
 
     private void memoryMinus(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memoryMinus
-        // TODO add your handling code here:
+        double mem;
+        if("".equals(memText.getText()) || "0".equals(memText.getText()) || "0.0".equals(memText.getText())) {
+            mem = 0;
+        } else {
+            mem = Double.parseDouble(memText.getText()) - Double.parseDouble(cValue.getText());
+        }
+        memText.setText(Double.toString(mem));
     }//GEN-LAST:event_memoryMinus
 
     private void memoryClear(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memoryClear
@@ -449,12 +492,47 @@ public class GUI extends javax.swing.JFrame {
 
     private void addNegativeSign(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNegativeSign
         // TODO add your handling code here:
-        if(!"".equals(cValue.getText())) {
-            double value = Double.parseDouble(cValue.getText());
+        double value = Double.parseDouble(cValue.getText());
+        if(!"".equals(value) || value != 0) {
             value = value * (-1);
             cValue.setText(Double.toString(value));
+        } else {
+            cValue.setText("0");
         }
     }//GEN-LAST:event_addNegativeSign
+
+    private void cValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cValueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cValueActionPerformed
+
+    private void resultTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resultTextActionPerformed
+    
+    @Override
+    public void keyTyped(KeyEvent e) {
+        List posKey = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "*", "/", "+", "-", ".", ",");
+        String keyValue = String.valueOf(e.getKeyChar());
+        if(posKey.contains(keyValue)) {
+            String cVal = cValue.getText();
+            cVal = cVal + keyValue;
+            cValue.setText(cVal);
+        } else {
+            keyValue = "";
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+       
+    }
+    
+    
     private boolean lastChar(String value, String compare) {
         String character = value.substring(value.length()-1);
         if(character == compare) {
@@ -533,4 +611,5 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField memText;
     private javax.swing.JTextField resultText;
     // End of variables declaration//GEN-END:variables
+
 }
